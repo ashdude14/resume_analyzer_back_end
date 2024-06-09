@@ -89,4 +89,101 @@ A directory to contain all Django apps. Each app is self-contained and has the f
 Run tests using the Django test framework:
 ```sh
 python manage.py test
+```
+## Endpoints
 
+
+### 1. List Resumes
+
+- **URL**: `/api/resumes/`
+- **Method**: `GET`
+- **Description**: Retrieves a list of all resumes.
+- **Response**:
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "content": "Resume content here..."
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "email": "jane@example.com",
+      "content": "Resume content here..."
+    }
+  ]
+2. Create Resume
+- URL: /api/resumes/
+- Method: POST
+- Description: Creates a new resume.
+
+Request Body:
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "content": "Resume content here..."
+}
+```
+Response:
+```json
+
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john@example.com",
+  "content": "Resume content here..."
+}
+```
+3. Retrieve Resume
+- URL: /api/resumes/{id}/
+- Method: GET
+- Description: Retrieves a specific resume by its ID.
+
+Response:
+```json
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john@example.com",
+  "content": "Resume content here..."
+}
+```
+4. Update Resume
+- URL: /api/resumes/{id}/
+- Method: PUT
+- Description: Updates a specific resume by its ID.
+Request Body:
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "content": "Updated resume content here..."
+}
+```
+Response:
+```json
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john@example.com",
+  "content": "Updated resume content here..."
+}
+```
+5. Delete Resume
+- URL: /api/resumes/{id}/
+- Method: DELETE
+- Description: Deletes a specific resume by its ID.
+- Response: No content (HTTP 204)
+6. Analyze Resume
+- URL: /api/resumes/{id}/analyze/
+- Method: POST
+- Description: Analyzes the content of a specific resume by its ID.
+Response:
+```json
+{
+  "summary": "Summarized resume content here..."
+}
+```
